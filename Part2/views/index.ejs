@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <link href="/bootstrap" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Listing All Cars</h1>
+    <a class="m-5 w-25 btn btn-primary" role="button" href="/add/">Add Car</a>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Licence No</th>
+            <th>Action</th>
+        </tr>
+
+        <% for(let car of cars){ %>
+            <tr>
+                <td><%= car.id %></td>
+                <td><a href="<%= '/list/' + car.id  %>"><%= car.model %></a></td>
+                <td><%= car.licenceNo %></td>
+                <td>
+                    <form method="GET" action="/delete">
+                        <input type="hidden" name="id" value="<%= car.id %>">
+                        <input class="btn btn-outline-danger" type="submit" value="delete" >
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+
+    </table>
+</body>
+</html>
