@@ -27,9 +27,11 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-
-        <span class="badge bg-secondary m-5">
-            <%= msg %>
+    <% if (locals.msg) { %>
+        <span class="badge bg-info m-5 h4">
+                <%= msg %>
         </span>
+    <% } %>
+
 </body>
 </html>

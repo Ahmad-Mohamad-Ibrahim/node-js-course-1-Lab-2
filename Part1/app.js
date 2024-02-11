@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded());
 
 app.set("view-engine","ejs");
 
+app.get("/" , function(req,res) {
+    res.redirect("/register");
+});
+
 app.get("/register" , function(req,res) {
     res.render("register.ejs");
 });
